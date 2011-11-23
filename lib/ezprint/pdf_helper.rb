@@ -7,7 +7,7 @@ module Ezprint
     end
 
     def render_with_ezprint(options = nil, *args, &block)
-      if options.is_a?(Symbol) or options.nil? or options[:pdf].nil?
+      if options.is_a?(Symbol) or options.nil? or options[:pdf].blank?
         render_without_ezprint(options, *args, &block)
       else
         options[:name] ||= options.delete(:pdf)
